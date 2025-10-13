@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes Home</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Style the header */
+header {
+  background-color: #0a400c;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: #111010;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #b1ab86;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #fefae0;
+  height: 300px; 
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #819067;
+  padding: 10px;
+  text-align: center;
+  color: #666;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Recipes</h2> 
+    </header>
+    <section>
+        <nav>
+          <ul>
+            <li><a href="#">Pasta</a></li>
+            <li><a href="#">Soups</a></li>
+            <li><a href="#">Desserts</a></li>
+          </ul>
+        </nav>
+        
+        <article>
+          <h1>Pasta </h1>
+          <p>Spaghetti Pomodoro</p>
+          <p>Fettucine Alfredo</p>
+          <p>Spaghetti Aglio Olio</p>
+        </article>
+      </section>
+      
+      <footer>
+        <p>Copyright 2025 </p>
+      </footer>
+</body>
+
+</html>
