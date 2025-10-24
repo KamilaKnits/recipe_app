@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe List</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}">
+</head>
+
+<body>
+    <div class="background-image"></div>
+
+    <div class="recipe-header">
+        <h1>Recipes</h1>
+    </div>
+
+    <div class="recipe-cards">
+        {% for object in object_list %}
+        <div class="recipe-card">
+            <img src="{{object.recipe_image.url}}" class="list-image" />
+            <div class="recipe-holder">
+                <p><a href="{{object.get_absolute_url}}">{{object.name}}</a></p>
+                <p>
+                    <span class="recipe-desription">Description:</span>
+                    {{object.recipe_description}}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</body>
+
+</html>
