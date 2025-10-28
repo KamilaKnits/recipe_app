@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}">
+    <title>Logged Out</title>
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="welcome-page">
+        <h1>You have successfully logged out!</h1>
+        <a href ="{%url 'login' %}"> Back to Log In </a>
+        
+    </div>
+
+    <footer>
+        <div>Photo by <a
+            href="https://unsplash.com/@eduardo_cg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Eduardo
+            Casajús Gorostiaga</a> on <a
+            href="https://unsplash.com/photos/orange-fruits-on-brown-wooden-basket-1zyf0dfFqSk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+          </a></div>
+      </footer>
+</body>
+
+</html>
