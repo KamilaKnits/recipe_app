@@ -23,7 +23,7 @@ def login_view(request):
             error_message = 'oops...something went wrong'
     context = {
         'form': form,   
-        'error_mesasge': error_message
+        'error_message': error_message
     }
 
     return render(request, 'auth/login.html', context)

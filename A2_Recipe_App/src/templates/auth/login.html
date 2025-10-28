@@ -23,14 +23,10 @@
 
         <form action="" method="POST" class="login-form">
             {% csrf_token %}
-            <label for="{{ form.username.id_for_label }}">Username</label>
-            {{ form.username }}
-
-            <label for="{{ form.password.id_for_label }}">Password</label>
-            {{ form.password }}
+           
+            {{ form}}
 
             <button type="submit" class="login-button">Log In</button>
-
         </form>
     </div>
 
