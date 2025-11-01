@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Recipe Search</title>
+    <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}">
+</head>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    a {
+        color: #2200ff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <div class="background-image"></div>
+    <a href="{% url 'recipes:list' %}" class="back-button">← Back to Recipes</a>
+    <div>
+
+        <h1>Recipe Search</h1>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit">search</button>
+        </form>
+
+        <br>
+
+        {% if recipes %}
+        <h2>Search Results</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Ingredients</th>
+                    <th>Cooking Time</th>
+                    <th>Difficulty</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recipe in recipes %}
+                <tr>
+                    <td><a href="{% url 'recipes:detail' recipe.id %}">
+                            {{ recipe.name }}</a>
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.cooking_time }} mins</td>
+                    <td>{{ recipe.difficulty }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        {% if chart %}
+        <h2>Chart Visualization</h2>
+        <img src="data:image/png;base64, {{chart|safe}}" alt="">
+        {% endif %}
+    </div>
+    <footer>
+        <div>Photo by <a
+                href="https://unsplash.com/@eduardo_cg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Eduardo
+                Casajús Gorostiaga</a> on <a
+                href="https://unsplash.com/photos/orange-fruits-on-brown-wooden-basket-1zyf0dfFqSk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </a></div>
+    </footer>
+</body>
+
+</html>
