@@ -25,14 +25,16 @@ class RecipeSearchForm(forms.Form):
         required=False,
         )
     cooking_time= forms.IntegerField(
-        label = "Cooking time (minutes)",
+        label = "Cooking Time (minutes)",
         required=False,
         )
     difficulty = forms.ChoiceField(
+        label = "Difficulty",
         choices=DIFFICULTY__CHOICES, 
         required=False
         )
     chart_type = forms.ChoiceField(
+        label = "Chart Type",
         choices=CHART_CHOICES, 
         required=False 
         )
