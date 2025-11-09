@@ -5,7 +5,12 @@ h1, h2 {
 /* footer */
 .footer-style {
     text-decoration: none; 
-    color:black 
+    color:black;
+}
+.site-footer {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
 }
 
 /* navigation bar */
@@ -56,6 +61,13 @@ ul li a:hover {
     color: black;
     overflow: hidden;
   }
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
 /* loging page */
 .login-form input {
     width: 100%;
@@ -187,6 +199,13 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.add-recipe-content,
+.search-recipe-content,
+.recipe-detail-content,
+.recipe-list-content {
+  flex:1;
 }
 
 .form-wrapper {

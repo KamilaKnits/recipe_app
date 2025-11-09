@@ -17,10 +17,10 @@
         <li><a href="{% url 'recipes:search' %}">Search</a></li> 
         <li><a href ="{%url 'logout' %}">Logout</a></li>
     </ul>
-    
-    <div>
+    <div class="page-wrapper"> 
+    <main class="recipe-list-content">
         <h1>Recipes</h1>      
-    </div>
+    
 
     <div class="recipe-layout">
         {% for object in object_list %}
@@ -36,13 +36,17 @@
         </div>
         {% endfor %}
     </div>
-    <footer>
+    </main>
+    <footer class="site-footer">
         <div>Photo by <a
-                href="https://unsplash.com/@eduardo_cg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Eduardo
-                Casajús Gorostiaga</a> on <a
-                href="https://unsplash.com/photos/orange-fruits-on-brown-wooden-basket-1zyf0dfFqSk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-            </a></div>
-    </footer>
+            href="https://unsplash.com/@eduardo_cg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            class="footer-style">Eduardo
+            Casajús Gorostiaga</a> on <a
+            href="https://unsplash.com/photos/orange-fruits-on-brown-wooden-basket-1zyf0dfFqSk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            class="footer-style">Unsplash</a>
+          </a></div>
+      </footer>
+    </div>
 </body>
 
 </html>
