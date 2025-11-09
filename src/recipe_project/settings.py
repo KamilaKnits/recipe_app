@@ -89,6 +89,10 @@ DATABASES = {
 }
 
 STORAGES = {
+    'default': {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    
     # Enable WhiteNoise's GZip (and Brotli, if installed) compression of static assets:
     # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
     "staticfiles": {
