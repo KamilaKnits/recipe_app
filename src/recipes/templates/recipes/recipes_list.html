@@ -11,28 +11,38 @@
 
 <body>
     <div class="background-image"></div>
-
-    <a href ="{%url 'logout' %}"> Logout </a>
-    <div class="recipe-header">
-        <h1>Recipes</h1>
-        <a href="{% url 'recipes:search' %}" class="back-button">Search Recipes</a>    
+    <ul>
+        <li><a href="{% url 'recipes:list' %}">Recipes</a></li>
+        <li><a href ="{%url 'recipes:add-recipe' %}">Add Recipe</a></li>
+        <li><a href="{% url 'recipes:search' %}">Search</a></li> 
+        <li><a href ="{%url 'logout' %}">Logout</a></li>
+    </ul>
+    
+    <div>
+        <h1>Recipes</h1>      
     </div>
 
-    <div class="recipe-cards">
+    <div class="recipe-layout">
         {% for object in object_list %}
         <div class="recipe-card">
             <img src="{{object.recipe_image.url}}" class="list-image" />
             <div class="recipe-holder">
-                <p><a href="{{object.get_absolute_url}}">{{object.name}}</a></p>
+                <p class="recipe-name"><a href="{{object.get_absolute_url}}">{{object.name}}</a></p>
                 <p>
-                    <span class="recipe-desription">Description:</span>
+                    <span class="recipe-description">Description:</span>
                     {{object.recipe_description}}
                 </p>
             </div>
         </div>
         {% endfor %}
     </div>
-    
+    <footer>
+        <div>Photo by <a
+                href="https://unsplash.com/@eduardo_cg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Eduardo
+                Casajús Gorostiaga</a> on <a
+                href="https://unsplash.com/photos/orange-fruits-on-brown-wooden-basket-1zyf0dfFqSk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </a></div>
+    </footer>
 </body>
 
 </html>

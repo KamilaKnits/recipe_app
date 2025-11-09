@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.urls import reverse
 from .models import Recipe
-from .forms import RecipeSearchForm
+from .forms import RecipeSearchForm, RecipeAddForm
 from .utils import get_chart
 import pandas as pd
 
@@ -72,3 +73,21 @@ def recipes_search(request):
     }
     return render(request, 'recipes/recipes_search.html', context) # create file
 
+@login_required
+def add_recipe_view(request):
+
+    if request.method == 'POST':
+        form = RecipeAddForm(request.POST, request.FILES)
+    
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.save()
+            messages.success(request, 'Recipe added successfully!')
+
+            return redirect('recipes:detail', pk=recipe.pk)
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = RecipeAddForm()
+           
+    return render(request, 'recipes/recipe_add.html', {'form': form})    

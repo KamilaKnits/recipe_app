@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
 from django.urls import reverse
 from .models import Recipe
 from .forms import RecipeSearchForm
@@ -48,7 +49,9 @@ class RecipeModelTest(TestCase):
 # views tests
 
 class RecipeViewTest(TestCase):
-    def setup(self):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='password')
+        self.client.login(username='testuser', password='password')
         self.recipe1 = Recipe.objects.create(
             name = 'Brownies', 
             ingredients = 'Butter, Sugar, Vanilla Extract, Eggs, Flour, Cocoa Powder',
@@ -64,13 +67,17 @@ class RecipeViewTest(TestCase):
 
     def test_recipe_list_view(self):
         response = self.client.get(reverse('recipes:list'))
+        # print("ListView", response.status_code)
+        # print(response.content.decode())
         self.assertTemplateUsed(response, 'recipes/recipes_list.html')
         self.assertContains(response, 'Brownies')
         self.assertContains(response, 'Pancakes')
 
     
     def test_recipe_detail_view(self):
-        response = self.client.get(reverse('recipes:detail'))
+        response = self.client.get(reverse('recipes:detail', args=[self.recipe1.pk]))
+        # print("details", response.status_code)
+        # print(response.content.decode())
         self.assertTemplateUsed(response, 'recipes/recipes_detail.html')
         self.assertContains(response, 'Brownies')
         

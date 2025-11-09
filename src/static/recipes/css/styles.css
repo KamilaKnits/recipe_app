@@ -1,7 +1,36 @@
 h1, h2 {
     text-align: center;
   }
-  
+
+/* footer */
+.footer-style {
+    text-decoration: none; 
+    color:black 
+}
+
+/* navigation bar */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #b22401;
+  display: flex;
+  justify-content: right;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #e36f52;
+  text-decoration: none;
+}
+  /* background image for all pages  */
 .background-image {
     position: fixed;
     top: 0;
@@ -14,6 +43,8 @@ h1, h2 {
     z-index: -1;
     opacity: 0.4;
   }
+
+/*  container used for layout */ 
 .main-content {
     position: relative;
     display: flex;
@@ -25,30 +56,20 @@ h1, h2 {
     color: black;
     overflow: hidden;
   }
-
-.login-container {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    text-align: center;
-  } 
-
+/* loging page */
 .login-form input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1em;
   } 
    
 .login-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #f57c00;
+    width: 80%;
+    padding: 15px;
+    background-color: #b22401;
     color: white;
     border: none;
     border-radius: 6px;
@@ -56,35 +77,31 @@ h1, h2 {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
-.login-button:hover {
-    background-color: #ef6c00;
+
+  .login-button:hover {
+    background-color: #b22401;
   } 
-  
-.error-message {
+
+  .error-message {
     color: #d32f2f;
     margin-bottom: 15px;
     font-weight: bold;
   } 
-
-
-.back-button {
-    display: inline-block;
-    margin: 20px;
-    padding: 10px 15px;
-    background-color: #f2f2f2;
-    color: #333;
-    text-decoration: none;
+/* buttons on success page, logout out page */
+ .back-home-btn, .welcome-button {
+    width: 20%;  
+    padding: 15px;
+    background-color: #b22401;
+    color: white;
+    border: none;
     border-radius: 6px;
-    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+    
+ } 
   
-.back-button:hover {
-    background-color: #ddd;
-  }
-  
-
+/* recipe list page */
 .list-image {
   width: 100%;
   height: auto;
@@ -92,7 +109,7 @@ h1, h2 {
   margin-bottom: 10px; 
 } 
 
-.recipe-cards {
+.recipe-layout {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -102,15 +119,29 @@ h1, h2 {
 
 .recipe-card {
   width: 250px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #f2f2f2;
+  /* background-color: rgba(255, 255, 255, 0.8); */
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
   padding: 15px;
   }
-
   
+.recipe-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.recipe-description {
+  font-weight: bold;
+  text-align: center;
+  margin-right: 0.5rem;
+  
+}
+  /*recipe detail page  */
 .detail-image {
     display: block;
     border-radius: 8px;
@@ -135,3 +166,71 @@ h1, h2 {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);  
   }
+/* recipe search page */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+a {
+    color: #2200ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  
+}
+
+.form-group {
+  width: 100%;
+  max-width: 100%;
+}
+
+.add-recipe-form, 
+.search-recipe-form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.add-recipe-label {
+  display: block;
+}
+
+.add-recipe-form input, 
+.search-recipe-form input, 
+.add-recipe-form textarea,
+.search-recipe-form textarea,
+.add-recipe-form select,
+.search-recipe-form select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+} 
+ 
+  
+  
+  

@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'kamilka-recipes-jh-0d2bc9cde5a8.herokuapp.com',
-    'kamilka-recipes-ed535cb2519b.herokuapp.com'
+    'kamilka-recipes-ed535cb2519b.herokuapp.com',
+    '127.0.0.1'
 ]
 
 

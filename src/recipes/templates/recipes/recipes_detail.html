@@ -12,10 +12,15 @@
 
 <body>
     <div class="background-image"></div>
-    <a href="{% url 'recipes:list' %}" class="back-button">← Back to Recipes</a>
+    <ul>
+        <li><a href="{% url 'recipes:list' %}">Recipes</a></li>
+        <li><a href="{% url 'recipes:search' %}">Search</a></li>
+        <li><a href ="{%url 'recipes:add-recipe' %}">Add Recipe</a></li> 
+        <li><a href ="{%url 'logout' %}">Logout</a></li>
+    </ul>
 
 
-    <div class="recipe-header"><h2>{{object.name}}</h2></div>
+    <div><h2>{{object.name}}</h2></div>
 
         <img src="{{object.recipe_image.url}}" class="detail-image" />
     
@@ -30,6 +35,13 @@
         <div><b>Difficulty: </b> {{object.difficulty}}</div>
 
     </div>
+    <footer>
+        <div>Photo by <a
+                href="https://unsplash.com/@eduardo_cg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" class="footer-style">Eduardo
+                Casajús Gorostiaga</a> on <a
+                href="https://unsplash.com/photos/orange-fruits-on-brown-wooden-basket-1zyf0dfFqSk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" class="footer-style">Unsplash</a>
+            </a></div>
+    </footer>
 </body>
 
 </html>
