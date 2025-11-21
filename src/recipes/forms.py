@@ -16,7 +16,7 @@ CHART_CHOICES = (
 )
 
 class RecipeSearchForm(forms.Form):
-    recipe_name = forms.CharField(
+    name = forms.CharField(
         label = "Recipe name",
         required=False,
         )
@@ -43,14 +43,14 @@ class RecipeAddForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = [
-            'recipe_name', 
+            'name', 
             'ingredients', 
             'cooking_time',
             'recipe_description',
             'recipe_image',
             ]
 
-    recipe_name = forms.CharField(
+    name = forms.CharField(
         label = "Recipe name",
         required=False,
         )

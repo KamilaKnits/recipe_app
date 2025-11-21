@@ -8,9 +8,11 @@ h1, h2 {
     color:black;
 }
 .site-footer {
-  background-color: #f2f2f2;
-  padding: 20px;
-  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  
 }
 
 /* navigation bar */
@@ -52,19 +54,21 @@ ul li a:hover {
 /*  container used for layout */ 
 .main-content {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */ /* was cutting off the table in search results*/
+    display: block;
+    text-align: center;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    text-align: center;
     color: black;
-    overflow: hidden;
+    overflow: visible;
+    padding-bottom: 2rem;
   }
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-bottom: 120px;
 }
 
 
@@ -211,8 +215,8 @@ a:hover {
 .form-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 2rem;
+  margin-bottom: 2rem;
   
 }
 
@@ -249,6 +253,20 @@ a:hover {
   border-radius: 6px;
   font-size: 1em;
 } 
+
+.chart-data {
+  text-align: center;      /* center chart horizontally */
+  margin-top: 2rem;        /* space above chart */
+  margin-bottom: 4rem;     /* breathing room above footer */
+}
+
+.chart-data img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
  
   
   

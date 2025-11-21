@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Recipe</title>
+  <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}">
+</head>
+
+<body>
+  <div class="background-image"></div>
+  <ul>
+    <li><a href="{% url 'recipes:list' %}">Recipes</a></li>
+    <li><a href="{% url 'recipes:search' %}">Search</a></li>
+    <li><a href="{%url 'recipes:add-recipe' %}">Add Recipe</a></li>
+    <li><a href="{%url 'logout' %}">Logout</a></li>
+  </ul>
+  <div>
+    <h1>Add A Recipe</h1>
+    <div class="form-wrapper">
+      <form action="" method="POST" class="add-recipe-form">
+
+        {% csrf_token %}
+
+        <div>
+          <div class="form-group">
+            <label for="{{ form.recipe_name.id_for_label }}" class="add-recipe-label">Recipe Name</label>
+            {{ form.recipe_name }} {{ form.recipe_name.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.ingredients.id_for_label }}">Ingredients</label>
+            {{ form.ingredients }} {{ form.ingredients.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.cooking_time.id_for_label }}">Cooking Time (minutes)</label>
+            {{ form.cooking_time }} {{ form.cooking_time.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.recipe_description.id_for_label }}">Description</label>
+            {{ form.recipe_description}} {{ form.recipe_description.errors }}
+          </div>
+
+          <div class="form-group">
+            <label for="{{ form.recipe_image.id_for_label }}">Image</label>
+            {{ form.recipe_image }} {{ form.recipe_image.errors }}
+          </div>
+        </div>
+        <button type="submit"> Add</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div>Photo by <a
+        href="https://unsplash.com/@eduardo_cg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        class="footer-style">Eduardo
+        Casajús Gorostiaga</a> on <a
+        href="https://unsplash.com/photos/orange-fruits-on-brown-wooden-basket-1zyf0dfFqSk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        class="footer-style">Unsplash</a>
+      </a></div>
+  </footer>
+</body>
+
+</html>

@@ -20,7 +20,7 @@
     </ul>
     <div class="page-wrapper">
         <main class="search-recipe-content">
-            <h1>Recipe Search</h1>
+            <h1>Search</h1>
             <div class="form-wrapper">
                 <form action="" method="POST" class="search-recipe-form">
                     {% csrf_token %}
@@ -54,14 +54,15 @@
                             </tr>
                             {% endfor %}
                         </tbody>
-
                     </table>
                     {% endif %}
 
                     {% if chart %}
                     <h2>Chart Visualization</h2>
-                    <img src="data:image/png;base64, {{chart|safe}}" alt="">
+                    <img src="data:image/png;base64, {{chart|safe}}" alt="" class="chart-img">
                     {% endif %}
+                </div>
+            </div>
         </main>
         <footer class="site-footer">
             <div>Photo by <a

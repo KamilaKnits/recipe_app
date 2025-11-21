@@ -36,19 +36,19 @@ def recipes_search(request):
 
     if request.method == 'POST' and form.is_valid():
         # extract from data
-        recipe_name = form.cleaned_data.get('recipe_name') # pulling forms.py RecipeSearchForm()
+        name = form.cleaned_data.get('name') # pulling forms.py RecipeSearchForm()
         ingredients = form.cleaned_data.get('ingredient')
         cooking_time = form.cleaned_data.get('cooking_time')
         difficulty = form.cleaned_data.get('difficulty')
         chart_type = form.cleaned_data.get('chart_type')
         
         qs = Recipe.objects.all() # get all recipes 
-        if recipe_name:
-            qs = qs.filter(name__icontains=recipe_name)
+        if name:
+            qs = qs.filter(name__icontains = name)
         if ingredients:
             qs = qs.filter(ingredients__icontains = ingredients)
         if cooking_time:
-            qs = qs.filter(cooking_time__lte = cooking_time)
+            qs = qs.filter(cooking_time = cooking_time) # exact cooking time, cooking_time__lte would mean less than or equal to
         if difficulty:
             qs = qs.filter(difficulty=difficulty)    
             
@@ -80,7 +80,7 @@ def add_recipe_view(request):
         form = RecipeAddForm(request.POST, request.FILES)
     
         if form.is_valid():
-            recipe = form.save(commit=False)
+            recipe = form.save()
             recipe.save()
             messages.success(request, 'Recipe added successfully!')
 

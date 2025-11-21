@@ -21,14 +21,14 @@
     <div class="add-recipe-content">
       <h1>Add A Recipe</h1>
       <div class="form-wrapper">
-        <form action="" method="POST" class="add-recipe-form">
+        <form action="" method="POST" class="add-recipe-form" enctype="multipart/form-data">
 
           {% csrf_token %}
 
           <div>
             <div class="form-group">
               <label for="{{ form.recipe_name.id_for_label }}" class="add-recipe-label">Recipe Name</label>
-              {{ form.recipe_name }} {{ form.recipe_name.errors }}
+              {{ form.name }} {{ form.name.errors }}
             </div>
 
             <div class="form-group">
